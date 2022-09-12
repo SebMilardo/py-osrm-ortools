@@ -37,7 +37,7 @@ RUN apt-get update && apt install -y \
 RUN git clone https://github.com/Project-OSRM/osrm-backend.git --branch 5.26 && \
     cd osrm-backend && mkdir -p build && cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON && \
-    cmake --build . && cmake --build . --target install && rm -rf /osrm-backend
+    cmake --build . && cmake --build . --target install && cp -r /osrm-backend/profiles/* /opt/ && rm -rf /osrm-backend
 
 
 # OR Tools
